@@ -23,6 +23,20 @@ class Topics::PostsController < ApplicationController
   	@post = @topic.posts.find(params[:id])
   end
 
+  def edit
+    @post = @topic.posts.find(params[:id])
+  end
+
+  def update
+    post = @topic.posts.find(params[:id])
+
+    if post.update(post_params)
+      redirect_to topic_post_path(topic_id: post.topic_id, id: post), notice: 'Your post was successfully updated.'
+    else
+      render :edit, notice: 'There was an error processing your request!'
+    end
+  end
+
   private
 
     def set_topic
