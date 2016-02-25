@@ -1,7 +1,1 @@
-<%= form_tag topic_post_path(topic_id: @topic.id, id: @post.id), method: 'put' do %>
-
-  <%= text_field_tag "post[title]" %>
-  
-  <%= submit_tag 'Save' %>
-
-<% end %>
+<%= render partial: 'form', locals: { source: 'edit' } %>
