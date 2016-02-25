@@ -1,6 +1,7 @@
 class Topics::PostsController < ApplicationController
   before_action :set_topic, except: [:new, :create]
   before_action :set_post, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = @topic.posts
@@ -24,6 +25,9 @@ class Topics::PostsController < ApplicationController
   end
 
   def edit
+    if @post.user_id != current_user.id
+      redirect_to topic_post_path(topic_id: @post.topic_id, id: @post), notice: 'Your are not authorized to edit this post.'
+    end
   end
 
   def update
