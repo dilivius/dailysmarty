@@ -22,6 +22,10 @@ class TopicsController < ApplicationController
   def edit
   end
 
+  def show
+    redirect_to topic_posts_path(topic_id: @topic)
+  end
+
   def update
     if @topic.update(topic_params)
       redirect_to topic_posts_path(topic_id: @topic), notice: 'Your topic was successfully updated.'
