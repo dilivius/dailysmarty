@@ -21,6 +21,12 @@
           <strong>Welcome Guest!</strong>
           <%= link_to "Login", new_user_session_path %> or
           <%= link_to "Register", new_user_registration_path %>
+
+          <% if current_user.class == 'AdminUser' %>
+            <%= "asdf" %>
+          <% end %>
+
+          <%= current_user.class %>
         </div>
       </div>
       <div class="clearfix"></div>
