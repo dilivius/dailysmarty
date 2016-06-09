@@ -6,27 +6,25 @@ end
 
 puts "100 Topics created"
 
-User.create!(
-		email: "admin@test.com",
-		password: "asdfasdf",
-		password_confirmation: "asdfasdf",
-		first_name: "Jon",
-		last_name: "Snow",
-		username: "wallwatcher",
-		role: "admin"
-	)
+AdminUser.create!(
+  email: "admin@test.com",
+  password: "asdfasdf",
+  password_confirmation: "asdfasdf",
+  first_name: "Jon",
+  last_name: "Snow",
+  username: "wallwatcher"
+)
 
 puts "Admin user created"
 
 User.create!(
-		email: "student@test.com",
-		password: "asdfasdf",
-		password_confirmation: "asdfasdf",
-		first_name: "Jon",
-		last_name: "Snow",
-		username: "youngwallwatcher",
-		role: "student"
-	)
+  email: "student@test.com",
+  password: "asdfasdf",
+  password_confirmation: "asdfasdf",
+  first_name: "Jon",
+  last_name: "Snow",
+  username: "youngwallwatcher"
+)
 
 puts "Student user created"
 
